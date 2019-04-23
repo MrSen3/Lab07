@@ -37,13 +37,24 @@ public class PowerOutagesController {
     private TextArea txtResult;
 
 
-
     @FXML
     void doWorstCaseAnalysis(ActionEvent event) {
-
+    	//Pulisco la view
+    	txtResult.clear();
+    	
+    	//Leggo quello che  l'utente ha selezionato/scritto nella view
+    	Nerc nercScelto = comboBoxMaac.getValue();
+    	int anniMax = Integer.parseInt(txtMaxYears.getText());
+    	int oreMax = Integer.parseInt(txtMaxHours.getText());
+    	
+    	String risultato = model.trovaWorstCase(nercScelto, anniMax, oreMax);
+    	
+    	txtResult.appendText(risultato);
     }
 
-    @FXML
+    
+
+	@FXML
     void initialize() {
         assert comboBoxMaac != null : "fx:id=\"comboBoxMaac\" was not injected: check your FXML file 'PowerOutages.fxml'.";
         assert txtMaxYears != null : "fx:id=\"txtMaxYears\" was not injected: check your FXML file 'PowerOutages.fxml'.";
