@@ -30,10 +30,10 @@ public class Model {
 		String risultato = "";
 		
 		List<PowerOutageEvent>parziale = new ArrayList<PowerOutageEvent>();
+		this.best.clear();
+		customersAffectedBest=Integer.MIN_VALUE;
 		//Voglio considerare gli eventi all'interno SOLO del nerc selezionato
-		//nercScelto.getId()
 		outages.clear();
-		//Devo considerare SOLO i blackout nel nerc selezionato
 		outages=podao.getOutages(nercScelto);
 		
 		cerca(parziale, 0, oreMax, anniMax);
@@ -42,7 +42,6 @@ public class Model {
 		for(PowerOutageEvent p: best) {
 			risultato+=p.toString()+"\n";
 		}
-		
 		
 		return risultato;
 	}

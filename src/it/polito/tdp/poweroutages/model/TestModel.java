@@ -14,8 +14,12 @@ public class TestModel {
 		System.out.println(nercList);
 		
 //		Funziona il metodo per estrarre dal db i poweroutages nel nerc
-		System.out.println(dao.getOutages(nercList.get(2)));
+		System.out.println(dao.getOutages(nercList.get(19)));
 		
-		System.out.println(model.trovaWorstCase(nercList.get(3), 10, 200));
+		System.out.println(model.trovaWorstCase(nercList.get(19), 3, 1));
+//		System.out.println(model.trovaWorstCase(nercList.get(18), 3, 1));
+//		System.out.println(model.trovaWorstCase(nercList.get(17), 3, 1));
+		System.out.println(model.trovaWorstCase(nercList.get(16), 3, 5));
+		System.out.println(model.trovaWorstCase(nercList.get(16), 3, 5));
 	}
 }
